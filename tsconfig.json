@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/", // Compiled output folder
+    "sourceMap": true, // Debug-friendly source maps
+    "moduleResolution": "node", // Standard for most React projects
+    "target": "ESNext", // Latest JavaScript features
+    "jsx": "react-jsx", // Supports modern React JSX
+    "module": "ESNext", // ES module system
+    "allowJs": true, // Allows JavaScript files
+    "checkJs": false, // Skips type-checking JavaScript files
+    "removeComments": true, // Cleans up output
+    "esModuleInterop": true, // Ensures CommonJS compatibility
+    "strict": true, // Enables all strict checks
+    "skipLibCheck": true, // Speeds up builds
+    "noImplicitAny": true, // Flags untyped variables in TS files
+    "forceConsistentCasingInFileNames": true, // Avoid case-sensitive issues
+    "noUnusedLocals": true, // Highlights unused variables
+    "noUnusedParameters": true, // Flags unused parameters
+    "noFallthroughCasesInSwitch": true // Prevents accidental switch case fallthrough
+  },
+  "include": ["src/**/*"], // Include all files in `src`
+  "exclude": ["node_modules", "dist"] // Exclude build and dependency folders
+}

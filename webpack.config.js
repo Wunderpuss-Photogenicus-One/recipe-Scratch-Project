@@ -38,6 +38,11 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.tsx?$/,
+        exclude: /node-modules/,
+        use: 'ts-loader',
+      },
     ],
   },
   plugins: [

@@ -1,5 +1,5 @@
 import React from 'react';
-import Hero from './Hero.jsx';
+import Hero from './Hero.tsx';
 import IngredientList from './Ingredients.jsx';
 
 const App = () => {
