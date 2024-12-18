@@ -37,3 +37,5 @@ recipeController.getRecipe = (req, res, next) => {
         })
     })
 }
+
+module.exports = recipeController;

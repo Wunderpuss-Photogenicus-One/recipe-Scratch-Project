@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-     "start": "nodemon ./src/server/server.js ",
-    "dev": "concurrently \"webpack-dev-server\" \"nodemon ./server/server.js\""
+     "start": "nodemon ./src/server/server.js "
   },
   "keywords": [],
   "author": "Rachel,Isaac,Kadeem,Jose,Elie",
