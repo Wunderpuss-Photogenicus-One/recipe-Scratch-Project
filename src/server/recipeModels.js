@@ -1,4 +1,4 @@
-const {pool} = require('pg');
+const {Pool} = require('pg');
 
 const PG_URI = 'postgresql://postgres:recipedatabase12332@db.cpbbxzewqbhajlmdekdv.supabase.co:5432/postgres'
 
@@ -8,7 +8,7 @@ const pool = new Pool({
 
   module.exports = {
     query: (text, params, callback) => {
-      console.log('executed query', text);
+      console.log('Executed query', text);
       return pool.query(text, params, callback);
     }
   };
