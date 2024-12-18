@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from './Hero.tsx';
 import IngredientList from './Ingredients.jsx';
+import RecipeList from './RecipeList.jsx';
 
 const App = () => {
   return (
@@ -8,6 +9,7 @@ const App = () => {
       <p>testing</p>
       <Hero />
       <IngredientList />
+      <RecipeList />
     </div>
   );
 };
