@@ -8,6 +8,7 @@ const IngredientList = () => {
   const handleChange = (event) => {
     const { value, checked } = event.target;
     console.log('I was checked!');
+    console.log(event.target.value);
     setChecked((previous) => ({
       ...previous,
       [value]: checked,
@@ -21,7 +22,15 @@ const IngredientList = () => {
     console.log('formMethod: ', form.method);
   };
 
-  console.log(fakeIngredients);
+  const handleClick = () => {
+    fetch('/api')
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => {
+        console.log('check fetch request for Recipe');
+      });
+  };
+
   return (
     <div>
       <h3>Ingredient List will be shown here</h3>
@@ -42,7 +51,9 @@ const IngredientList = () => {
             </label>
           );
         })}
-        <button type='submit'>Submit</button>
+        <button type='submit' onClick={handleClick}>
+          Submit
+        </button>
       </form>
 
       <h5>
