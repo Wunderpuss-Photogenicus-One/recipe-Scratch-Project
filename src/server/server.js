@@ -3,9 +3,9 @@ const express = require('express');
 
 const app = express();
 
-const apiRouter = require('./routes/api');
+const apiRouter = require('./routes/api.js');
 
-const PORT = 3000;
+const PORT = 8080;
 
 /**
  * handle parsing request body
@@ -40,3 +40,4 @@ app.use((err, req, res, next) => {
   
    module.exports = app;
   
+

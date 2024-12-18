@@ -13,14 +13,14 @@ module.exports = {
         static: {
             directory: path.resolve(__dirname, 'build'),
         },
-        port:3000,
+        port:8080,
         open: true,
-        proxy: [
-            {
-                context: ['/'],
-                target: 'http://localhost:8080',
-            }
-        ],
+        // proxy: [
+        //     {
+        //         context: ['/'],
+        //         target: 'http://localhost:3000',
+        //     }
+        // ],
     },
     module: { rules: [
         {
