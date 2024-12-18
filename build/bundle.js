@@ -1,4 +1,12 @@
 /******/ (() => { // webpackBootstrap
+<<<<<<< HEAD
+/*!*****************************!*\
+  !*** ./src/client/index.js ***!
+  \*****************************/
+
+/******/ })()
+;
+=======
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
@@ -39402,3 +39410,4 @@ root.render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElem
 /******/ })()
 ;
 //# sourceMappingURL=bundle.js.map
+>>>>>>> Dev-Branch
