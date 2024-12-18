@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 
 const App = () => {
   useEffect(() => {
-    fetch('/Recipe')
+    fetch('/')
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((err) => {
@@ -17,7 +17,6 @@ const App = () => {
 
   return (
     <div>
-      <NavBar />
       <Hero />
       <IngredientList />
       <RecipeList />

@@ -1,6 +1,3 @@
-
-
-
 const Hero = () => {
   return (
     <div>
