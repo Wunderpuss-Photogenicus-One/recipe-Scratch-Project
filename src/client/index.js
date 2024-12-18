@@ -21,6 +21,3 @@ root.render(
   </BrowserRouter>
 );
 
-<ul>
-    <li></li>
-</ul>

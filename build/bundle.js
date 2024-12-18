@@ -39397,7 +39397,6 @@ root.render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElem
   path: "/recipe-builder",
   element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_CreateRecipe_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], null)
 }))));
-/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null));
 })();
 
 /******/ })()
