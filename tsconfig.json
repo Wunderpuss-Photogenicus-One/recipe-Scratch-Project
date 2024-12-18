@@ -5,7 +5,7 @@
     "moduleResolution": "node", // Standard for most React projects
     "target": "ESNext", // Latest JavaScript features
     "jsx": "react-jsx", // Supports modern React JSX
-    "module": "ESNext", // ES module system
+    "module": "CommonJS", // ES module system
     "allowJs": true, // Allows JavaScript files
     "checkJs": false, // Skips type-checking JavaScript files
     "removeComments": true, // Cleans up output
