@@ -1,7 +1,9 @@
 import React from 'react';
 
 const CreateRecipe = () => {
-  const handleSubmission = () => {};
+  const handleSubmission = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <div>
