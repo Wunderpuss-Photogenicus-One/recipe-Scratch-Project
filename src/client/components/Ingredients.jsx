@@ -1,10 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 
-const IngredientList = () => {
+const IngredientList = (props) => {
   const fakeIngredients = ['apple', 'banana', 'milk'];
   const [checked, setChecked] = useState({});
-
+  // let array = [...props.ingredientList];
+  // console.log(array);
   const handleChange = (event) => {
     const { value, checked } = event.target;
     console.log('I was checked!');
