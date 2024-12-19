@@ -1,7 +1,7 @@
 const Hero = () => {
   return (
     <div>
-      <h1>Hero Section</h1>
+      <h1>Welcome to our recipe generator!</h1>
     </div>
   );
 };
