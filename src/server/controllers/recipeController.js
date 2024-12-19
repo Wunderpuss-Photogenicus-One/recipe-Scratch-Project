@@ -21,9 +21,8 @@ recipeController.getIngredients = (req, res, next) => {
 };
 
 recipeController.getRecipe = (req, res, next) => {
-    // const [] = req.body;
     const getRecipe = `SELECT 
-    r.recipe_name
+    r.recipe_name, r.instructions
 FROM 
     recipe r
 JOIN 
@@ -33,7 +32,10 @@ JOIN
 WHERE 
     i.ingredient_name = $1
 GROUP BY 
-    r.recipe_name;`;
+     r.recipe_id, 
+    r.recipe_name, 
+    r.instructions;
+    `;
 
     // test.forEach((element)=> {
 
