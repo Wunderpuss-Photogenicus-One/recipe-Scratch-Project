@@ -43,10 +43,12 @@ const IngredientList = (props) => {
       },
       body: JSON.stringify([...ingredientChosen]), //sending ingredients chosen to the backend
     })
-      .then((response) => {
-        response.json();
+      .then((res) => {
+        res.json();
       })
-      .then((data) => setRecipeList(mockRecipeList))
+      .then((data) => {
+        console.log(data);
+      })
       .catch((err) =>
         console.error('Frontend to backend communication breakdown:', err)
       );
