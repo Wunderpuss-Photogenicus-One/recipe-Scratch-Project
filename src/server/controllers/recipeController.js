@@ -3,33 +3,26 @@ const db = require('../recipeModels.js');
 const recipeController = {};
 
 recipeController.getIngredients = (req, res, next) => {
-  const getIngredients =
-    'SELECT ingredient_id, ingredient_name FROM ingredients';
 
-  db.query(getIngredients)
-    .then((result) => {
-      console.log(result.rows);
-      res.locals.ingredients = result.rows;
-      return next();
+    console.log('i enetered ingredients');
+    const getIngredients = 'SELECT ingredient_id, ingredient_name FROM ingredients';
+
+    db.query(getIngredients).then((result) => {
+        res.locals.ingredients = result.rows;
+        return next();
     })
     .catch((err) => {
-      console.log('im here');
-      return next({
-        log: 'getIngredients middleware error' + err.message,
-        message: { err: 'Error occured in getIngredients' },
-      });
-    });
+        return next({
+            log: 'getIngredients middleware error' + err.message,
+            message: {err: 'Error occured in getIngredients'}
+
+        })
+    }) 
 };
 
 recipeController.getRecipe = (req, res, next) => {
-    console.log('i enetered recipes');
-    const test = ['Eggs', 'Pancetta']
-    const x = test.length;
-
-    const placeholders = Array.from({ length: x }, (_, i) => `$${i + 1}`); 
-    console.log(placeholders.join(','))
     const getRecipe = `SELECT 
-    r.recipe_name
+    r.recipe_name, r.instructions
 FROM 
     recipe r
 JOIN 
@@ -37,21 +30,28 @@ JOIN
 JOIN 
     ingredients i ON ri.ingredient_id = i.ingredient_id
 WHERE 
-    i.ingredient_name IN (${placeholders.join(',')})
+    i.ingredient_name = $1
 GROUP BY 
-    r.recipe_name;`;
+     r.recipe_id, 
+    r.recipe_name, 
+    r.instructions;
+    `;
 
-    db.query(getRecipe, test).then((result) => {
-        res.locals = result.rows;// need to add .recipe to the res.locals AND also in the api!!
-        console.log('im here')
-        return next()
-    })
-    .catch((err) => {
-        return next({
-            log: 'getRecipe middleware error' + err.message,
-            message: {err: 'Error occured in getIngredients'}
+    // test.forEach((element)=> {
 
+        db.query(getRecipe, req.body).then((result) => {
+            res.locals = result.rows;// need to add .recipe to the res.locals AND also in the api!!
+            console.log('im here: ', res.locals)
+            return next()
         })
-    })
-};
+        .catch((err) => {
+            return next({
+                log: 'getRecipe middleware error' + err.message,
+                message: {err: 'Error occured in getIngredients'}
+    
+            })
+        })
+
+    // })
+}
 module.exports = recipeController;
