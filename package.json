@@ -2,7 +2,7 @@
   "name": "recipe-scratch-project",
   "version": "1.0.0",
   "description": "-packages -onboard react -dependencies -package.json -file structure -dev branch -webpack config",
-  "main": "index.js",
+  "main": "src/server/server.js",
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server",
@@ -15,6 +15,7 @@
     "@supabase/supabase-js": "^2.47.8",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "pg": "^8.13.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.0.2",

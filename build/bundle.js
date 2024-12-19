@@ -26,7 +26,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var App = function App() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    fetch('/').then(function (res) {
+    fetch('/api').then(function (res) {
       return res.json();
     }).then(function (data) {
       return console.log(data);
@@ -134,8 +134,7 @@ var IngredientList = function IngredientList() {
       value: element
     }), element);
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    type: "submit",
-    onClick: handleClick
+    type: "submit"
   }, "Submit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", null, "This container might populate automatically as ingredients are selected"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", null, "Tap to generate recipe!"));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IngredientList);
