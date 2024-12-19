@@ -7,7 +7,16 @@ const CreateRecipe = () => {
     <div>
       <h1>Time to create your own recipe!</h1>
       <form onSubmit={handleSubmission}>
-        <h1> </h1>
+        <label htmlFor='nameOfRecipe'>Name of your recipe: </label>
+        <input type='text' id='nameOfRecipe' name='nameOfRecipe'></input>
+        <label htmlFor='recipeInstructions'>
+          Instructions to make your recipe
+        </label>
+        <input
+          type='text'
+          id='recipeInstructions'
+          name='recipeInstructions'
+        ></input>
       </form>
     </div>
   );

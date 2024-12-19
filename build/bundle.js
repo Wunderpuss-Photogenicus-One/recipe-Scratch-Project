@@ -66,7 +66,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 var CreateRecipe = function CreateRecipe() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, " "));
+  var handleSubmission = function handleSubmission() {};
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Time to create your own recipe!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
+    onSubmit: handleSubmission
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "nameOfRecipe"
+  }, "Name of your recipe: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    type: "text",
+    id: "nameOfRecipe",
+    name: "nameOfRecipe"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "recipeInstructions"
+  }, "Instructions to make your recipe"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    type: "text",
+    id: "recipeInstructions",
+    name: "recipeInstructions",
+    placeholder: "Step1:"
+  })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CreateRecipe);
 
@@ -85,12 +101,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
@@ -100,77 +119,65 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 var IngredientList = function IngredientList(props) {
-  var fakeIngredients = ['apple', 'banana', 'milk'];
+  var ingredientList = props.ingredientList; //destructuring props object, grabbing the ingredient list fetched results
+
+  // const fakeIngredients = ['apple', 'banana', 'milk']; // this will be deleted just a test
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
     _useState2 = _slicedToArray(_useState, 2),
     checked = _useState2[0],
-    setChecked = _useState2[1];
-  // let array = [...props.ingredientList];
-  var ingredientList = props.ingredientList; //destructuring props object, grabbing the ingredient list fetched results
-  console.log('ingredientList:', ingredientList); //just testing to see if ingredient list prints
+    setChecked = _useState2[1]; //keeps track of all checked boxes
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(new Set()),
+    _useState4 = _slicedToArray(_useState3, 2),
+    ingredientChosen = _useState4[0],
+    setIngredientChosen = _useState4[1];
+  // console.log('ingredientList:', ingredientList); //just testing to see if ingredient list prints
+  var listOfIngredientsChosen = _toConsumableArray(ingredientChosen);
 
-  //adds to the object 'checked' the boxes that are checked off
+  //adds to the stateObject the ingredients that are checked off
   var handleChange = function handleChange(event) {
     var _event$target = event.target,
       name = _event$target.name,
       checked = _event$target.checked;
-    console.log('name of item checked:', name);
-    console.log(checked);
+    // console.log('name of item checked:', name);
+    // console.log(checked);
     setChecked(function (previous) {
       return _objectSpread(_objectSpread({}, previous), {}, _defineProperty({}, name, checked));
     });
   };
 
-  // console.log(checked.keys);
-
+  //this function is used for the form submission
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
-    var form = e.target;
-    var formData = new FormData(form);
-    console.log('formData: ', formData.entries());
-    // console.log('formMethod: ', form.method);
-  };
-
-  //not needed anymore, for submit button, form has own submission event handler
-  // const handleClick = () => {
-  //   fetch('/api')
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data))
-  //     .catch((err) => {
-  //       console.log('check fetch request for Recipe');
-  //     });
-  // };
-
-  //this form is to be used onhandlesubmit
-  var handleIngredientListClick = function handleIngredientListClick() {
+    //fetch request sent to server to fetch recipes based on ingredients
     fetch('/api/recipes', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(fakeIngredients)
-    })["catch"](function () {
-      (function (err) {
-        return console.error('Frontend to backend communication breakdown:', err);
-      });
+      body: JSON.stringify(_toConsumableArray(ingredientChosen))
+    }).then(function (response) {
+      response.json();
+    }).then(function (data) {
+      return console.log(data);
+    })["catch"](function (err) {
+      return console.error('Frontend to backend communication breakdown:', err);
     });
   };
-  if (Object.keys(checked).length) {
+
+  // console.log(checked);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var ingredientSet = new Set();
-    var _iterator = _createForOfIteratorHelper(checked),
-      _step;
-    try {
-      for (_iterator.s(); !(_step = _iterator.n()).done;) {
-        var item = _step.value;
-      }
-    } catch (err) {
-      _iterator.e(err);
-    } finally {
-      _iterator.f();
+    for (var _i = 0, _Object$entries = Object.entries(checked); _i < _Object$entries.length; _i++) {
+      var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+        key = _Object$entries$_i[0],
+        value = _Object$entries$_i[1];
+      if (value) ingredientSet.add(key);else ingredientSet["delete"](key);
     }
-  }
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Ingredient List will be shown here"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
+    console.log(ingredientSet);
+    setIngredientChosen(ingredientSet);
+  }, [checked]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Select from These Ingredients:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
     method: "POST",
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, ingredientList.map(function (element) {
@@ -187,11 +194,38 @@ var IngredientList = function IngredientList(props) {
     }), element.ingredient_name);
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     type: "submit"
-  }, "Submit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", null, "This container might populate automatically as ingredients are selected"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    onClick: handleIngredientListClick
-  }, "Tap to generate recipe!"));
+  }, "Submit Ingredients and Find Recipe")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", null, "Selected ingredients:", listOfIngredientsChosen.length > 0 && listOfIngredientsChosen.map(function (element) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+      key: element
+    }, element);
+  })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IngredientList);
+
+//not needed anymore, for submit button, form has own submission event handler
+// const handleClick = () => {
+//   fetch('/api')
+//     .then((res) => res.json())
+//     .then((data) => console.log(data))
+//     .catch((err) => {
+//       console.log('check fetch request for Recipe');
+//     });
+// };
+
+//this form is to be used onhandlesubmit
+// const handleIngredientListClick = () => {
+//   fetch('/api/recipes', {
+//     method: 'POST',
+//     headers: {
+//       Accept: 'application/json',
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(fakeIngredients),
+//   }).catch(() => {
+//     (err) =>
+//       console.error('Frontend to backend communication breakdown:', err);
+//   });
+// };
 
 /***/ }),
 
@@ -29064,7 +29098,7 @@ module.exports = styleTagTransform;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 const Hero = () => {
-    return ((0, jsx_runtime_1.jsx)("div", { children: (0, jsx_runtime_1.jsx)("h1", { children: "Hero Section" }) }));
+    return ((0, jsx_runtime_1.jsx)("div", { children: (0, jsx_runtime_1.jsx)("h1", { children: "Welcome to our recipe generator!" }) }));
 };
 exports["default"] = Hero;
 
