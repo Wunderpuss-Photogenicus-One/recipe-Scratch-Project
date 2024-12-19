@@ -15,6 +15,8 @@ const App = () => {
       });
   }, []);
 
+
+  
   return (
     <div>
       <Hero />
