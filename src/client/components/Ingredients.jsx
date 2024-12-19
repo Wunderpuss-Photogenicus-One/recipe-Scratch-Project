@@ -32,9 +32,14 @@ const IngredientList = (props) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify([...ingredientChosen]),
-    }).catch((err) =>
-      console.error('Frontend to backend communication breakdown:', err)
-    );
+    })
+      .then((response) => {
+        response.json();
+      })
+      .then((data) => console.log(data))
+      .catch((err) =>
+        console.error('Frontend to backend communication breakdown:', err)
+      );
   };
 
   //not needed anymore, for submit button, form has own submission event handler
@@ -75,7 +80,7 @@ const IngredientList = (props) => {
 
   return (
     <div>
-      <h3>Ingredient List will be shown here</h3>
+      <h3>Select from These Ingredients:</h3>
       <form method='POST' onSubmit={handleSubmit}>
         <div>
           {ingredientList.map((element) => {
@@ -95,18 +100,18 @@ const IngredientList = (props) => {
             );
           })}
         </div>
-        <button type='submit'>Submit</button>
+        <button type='submit'>Submit Ingredients and Find Recipe</button>
         {/* maybe replace the above button with the button below? (tap to generate recipe) */}
       </form>
 
       <h5>
-        This container might populate automatically as ingredients are selected
+        Selected ingredients:
         {listOfIngredientsChosen.length > 0 &&
           listOfIngredientsChosen.map((element) => {
             return <li>{element}</li>;
           })}
       </h5>
-      <button>Tap to generate recipe!</button>
+      {/* <button>Tap to generate recipe!</button> */}
     </div>
   );
 };
