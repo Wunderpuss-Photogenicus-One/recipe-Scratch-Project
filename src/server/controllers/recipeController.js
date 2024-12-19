@@ -22,8 +22,25 @@ recipeController.getIngredients = (req, res, next) => {
 };
 
 recipeController.getRecipe = (req, res, next) => {
-    
-    const getRecipe = 'select ingredient_id, ingredient_name from ingredients';//need to change this query
+    console.log(req.body)
+   const [] = req.body;
+   
+   let x = req.body.length;
+
+    const getRecipe = `SELECT 
+    r.recipe_name
+FROM 
+    recipe r
+JOIN 
+    recipe_ingredients ri ON r.recipe_id = ri.recipe_id
+JOIN 
+    ingredients i ON ri.ingredient_id = i.ingredient_id
+WHERE 
+    i.ingredient_name IN ($1, $2, $3, $4, $5, $6, $7)
+GROUP BY 
+    r.recipe_name;`
+
+
 
     db.query(getRecipe).then((result) => {
         res.locals = result.rows;// need to add .recipe to the res.locals AND also in the api!!
