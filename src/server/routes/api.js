@@ -1,12 +1,11 @@
 const express = require('express');
-
+const recipeController = require('../controllers/recipeController.js')
 const router = express.Router();
 
-const recipeController = require('../controllers/recipeController')
+router.get('/', recipeController.getIngredients, (req, res) => res.status(200).json(res.locals.ingredients))
+router.get('/recipes', recipeController.getRecipe, (req, res) => res.status(200).json(res.locals)); 
 
-router.get('/',
-    recipeController.getIngredients,
-    (req, res) => res.status(200).json(res.locals)
-  );
 
 module.exports = router;
+
+

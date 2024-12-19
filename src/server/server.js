@@ -3,9 +3,9 @@ const express = require('express');
 
 const app = express();
 
-const apiRouter = require('./routes/api');
+const apiRouter = require('./routes/api.js');
 
-const PORT = 3000;
+const PORT = 8080;
 
 /**
  * handle parsing request body
@@ -34,9 +34,10 @@ app.use((err, req, res, next) => {
     return res.status(errorObj.status).json(errorObj.message);
   });
 
-//   app.listen(PORT, () => {
-//     console.log(`Server listening on port: ${PORT}...`);
-//   });
+  app.listen(PORT, () => {
+    console.log(`Server listening on port: ${PORT}...`);
+  });
   
-//   module.exports = app;
+   module.exports = app;
   
+
