@@ -134,7 +134,8 @@ var IngredientList = function IngredientList() {
       value: element
     }), element);
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    type: "submit"
+    type: "submit",
+    onClick: handleClick
   }, "Submit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", null, "This container might populate automatically as ingredients are selected"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", null, "Tap to generate recipe!"));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IngredientList);
