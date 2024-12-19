@@ -4,27 +4,27 @@ import { useState } from 'react';
 const IngredientList = (props) => {
   const { ingredientList } = props; //destructuring props object, grabbing the ingredient list fetched results
 
-  const fakeIngredients = ['apple', 'banana', 'milk']; // this will be deleted just a test
-  const [checked, setChecked] = useState({});
+  // const fakeIngredients = ['apple', 'banana', 'milk']; // this will be deleted just a test
+  const [checked, setChecked] = useState({}); //keeps track of all checked boxes
   const [ingredientChosen, setIngredientChosen] = useState(new Set());
   // console.log('ingredientList:', ingredientList); //just testing to see if ingredient list prints
   let listOfIngredientsChosen = [...ingredientChosen];
-  console.log('listOfIngredientsChosen:', listOfIngredientsChosen);
-  //adds to the object 'checked' the boxes that are checked off
+
+  //adds to the stateObject the ingredients that are checked off
   const handleChange = (event) => {
     const { name, checked } = event.target;
-    console.log('name of item checked:', name);
-    console.log(checked);
-
+    // console.log('name of item checked:', name);
+    // console.log(checked);
     setChecked((previous) => ({
       ...previous,
       [name]: checked,
     }));
   };
 
+  //this function is used for the form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    //fetch request sent to server to fetch recipes based on ingredients
     fetch('/api/recipes', {
       method: 'POST',
       headers: {
@@ -41,31 +41,6 @@ const IngredientList = (props) => {
         console.error('Frontend to backend communication breakdown:', err)
       );
   };
-
-  //not needed anymore, for submit button, form has own submission event handler
-  // const handleClick = () => {
-  //   fetch('/api')
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data))
-  //     .catch((err) => {
-  //       console.log('check fetch request for Recipe');
-  //     });
-  // };
-
-  //this form is to be used onhandlesubmit
-  // const handleIngredientListClick = () => {
-  //   fetch('/api/recipes', {
-  //     method: 'POST',
-  //     headers: {
-  //       Accept: 'application/json',
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(fakeIngredients),
-  //   }).catch(() => {
-  //     (err) =>
-  //       console.error('Frontend to backend communication breakdown:', err);
-  //   });
-  // };
 
   // console.log(checked);
   useEffect(() => {
@@ -108,7 +83,7 @@ const IngredientList = (props) => {
         Selected ingredients:
         {listOfIngredientsChosen.length > 0 &&
           listOfIngredientsChosen.map((element) => {
-            return <li>{element}</li>;
+            return <li key={element}>{element}</li>;
           })}
       </h5>
       {/* <button>Tap to generate recipe!</button> */}
@@ -117,3 +92,28 @@ const IngredientList = (props) => {
 };
 
 export default IngredientList;
+
+//not needed anymore, for submit button, form has own submission event handler
+// const handleClick = () => {
+//   fetch('/api')
+//     .then((res) => res.json())
+//     .then((data) => console.log(data))
+//     .catch((err) => {
+//       console.log('check fetch request for Recipe');
+//     });
+// };
+
+//this form is to be used onhandlesubmit
+// const handleIngredientListClick = () => {
+//   fetch('/api/recipes', {
+//     method: 'POST',
+//     headers: {
+//       Accept: 'application/json',
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(fakeIngredients),
+//   }).catch(() => {
+//     (err) =>
+//       console.error('Frontend to backend communication breakdown:', err);
+//   });
+// };

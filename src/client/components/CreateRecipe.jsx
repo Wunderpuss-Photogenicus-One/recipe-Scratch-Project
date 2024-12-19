@@ -1,10 +1,15 @@
 import React from 'react';
 
 const CreateRecipe = () => {
+  const handleSubmission = () => {};
+
   return (
-    <form>
-      <h1> </h1>
-    </form>
+    <div>
+      <h1>Time to create your own recipe!</h1>
+      <form onSubmit={handleSubmission}>
+        <h1> </h1>
+      </form>
+    </div>
   );
 };
 
