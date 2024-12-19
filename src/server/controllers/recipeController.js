@@ -22,11 +22,12 @@ recipeController.getIngredients = (req, res, next) => {
 };
 
 recipeController.getRecipe = (req, res, next) => {
-    console.log(req.body)
-   const [] = req.body;
-   
-   let x = req.body.length;
+    console.log('i enetered recipes');
+    const test = ['Eggs', 'Pancetta']
+    const x = test.length;
 
+    const placeholders = Array.from({ length: x }, (_, i) => `$${i + 1}`); 
+    console.log(placeholders.join(','))
     const getRecipe = `SELECT 
     r.recipe_name
 FROM 
@@ -36,23 +37,21 @@ JOIN
 JOIN 
     ingredients i ON ri.ingredient_id = i.ingredient_id
 WHERE 
-    i.ingredient_name IN ($1, $2, $3, $4, $5, $6, $7)
+    i.ingredient_name IN (${placeholders.join(',')})
 GROUP BY 
-    r.recipe_name;`
+    r.recipe_name;`;
 
-
-
-  db.query(getRecipe)
-    .then((result) => {
-      res.locals = result.rows; // need to add .recipe to the res.locals AND also in the api!!
-
-      return next();
+    db.query(getRecipe, test).then((result) => {
+        res.locals = result.rows;// need to add .recipe to the res.locals AND also in the api!!
+        console.log('im here')
+        return next()
     })
     .catch((err) => {
-      return next({
-        log: 'getIngredients middleware error' + err.message,
-        message: { err: 'Error occured in getIngredients' },
-      });
-    });
+        return next({
+            log: 'getRecipe middleware error' + err.message,
+            message: {err: 'Error occured in getIngredients'}
+
+        })
+    })
 };
 module.exports = recipeController;
