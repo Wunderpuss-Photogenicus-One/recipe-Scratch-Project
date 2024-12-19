@@ -1,7 +1,6 @@
 import React from 'react';
 import Hero from './Hero.tsx';
 import IngredientList from './Ingredients.jsx';
-import RecipeList from './RecipeList.jsx';
 import NavBar from './NavBar.jsx';
 import { useEffect, useState } from 'react';
 
@@ -23,7 +22,6 @@ const App = () => {
     <div>
       <Hero />
       <IngredientList ingredientList={ingredientList} />
-      <RecipeList />
     </div>
   );
 };
