@@ -3,9 +3,12 @@ import { useState } from 'react';
 
 const IngredientList = (props) => {
   const fakeIngredients = ['apple', 'banana', 'milk'];
+
   const [checked, setChecked] = useState({});
   // let array = [...props.ingredientList];
-  // console.log(array);
+  const { ingredientList } = props;
+  console.log('ingredientList:', ingredientList);
+
   const handleChange = (event) => {
     const { value, checked } = event.target;
     console.log('I was checked!');
@@ -32,26 +35,42 @@ const IngredientList = (props) => {
       });
   };
 
+  const handleIngredientListClick = () => {
+    fetch('/api/recipes', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(fakeIngredients),
+    }).catch(() => {
+      (err) =>
+        console.error('Frontend to backend communication breakdown:', err);
+    });
+  };
+
   return (
     <div>
       <h3>Ingredient List will be shown here</h3>
-      <form method='post' onSubmit={handleSubmit}>
-        {fakeIngredients.map((element, index) => {
-          return (
-            <label key={index} htmlFor={element}>
-              {/* htmlFor is what we need in react to connect the label to the input */}
-              <input
-                id={index}
-                name='test'
-                type='checkbox'
-                checked={checked[element] || false}
-                onChange={handleChange}
-                value={element}
-              />
-              {element}
-            </label>
-          );
-        })}
+      <form method='POST' onSubmit={handleSubmit}>
+        <div>
+          {ingredientList.map((element) => {
+            return (
+              <label key={element.ingredient_id} htmlFor={element}>
+                {/* htmlFor is what we need in react to connect the label to the input */}
+                <input
+                  id={element.ingredient_id}
+                  name='test'
+                  type='checkbox'
+                  checked={checked[element.ingredient_name] || false}
+                  onChange={handleChange}
+                  value={element.ingredient_name}
+                />
+                {element.ingredient_name}
+              </label>
+            );
+          })}
+        </div>
         <button type='submit' onClick={handleClick}>
           Submit
         </button>
@@ -60,7 +79,9 @@ const IngredientList = (props) => {
       <h5>
         This container might populate automatically as ingredients are selected
       </h5>
-      <button>Tap to generate recipe!</button>
+      <button onClick={handleIngredientListClick}>
+        Tap to generate recipe!
+      </button>
     </div>
   );
 };

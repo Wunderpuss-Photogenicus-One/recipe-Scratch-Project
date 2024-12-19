@@ -18,6 +18,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Ingredients_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Ingredients.jsx */ "./src/client/components/Ingredients.jsx");
 /* harmony import */ var _RecipeList_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RecipeList.jsx */ "./src/client/components/RecipeList.jsx");
 /* harmony import */ var _NavBar_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NavBar.jsx */ "./src/client/components/NavBar.jsx");
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
@@ -25,16 +31,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState2 = _slicedToArray(_useState, 2),
+    ingredientList = _useState2[0],
+    setIngredientList = _useState2[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     fetch('/api').then(function (res) {
       return res.json();
     }).then(function (data) {
-      return console.log(data);
+      console.log(data);
+      var list = data.filter(function (element) {
+        console.log(element.ingredient_name);
+        return element.ingredient_name;
+      });
+      setIngredientList(list);
     })["catch"](function (err) {
       console.log('check fetch request for Recipe');
     });
   }, []);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Hero_tsx__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Ingredients_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_RecipeList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Hero_tsx__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Ingredients_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    ingredientList: ingredientList
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_RecipeList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
@@ -86,12 +103,14 @@ function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" !=
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
-var IngredientList = function IngredientList() {
+var IngredientList = function IngredientList(props) {
   var fakeIngredients = ['apple', 'banana', 'milk'];
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
     _useState2 = _slicedToArray(_useState, 2),
     checked = _useState2[0],
     setChecked = _useState2[1];
+  // let array = [...props.ingredientList];
+  console.log(props.ingredientList);
   var handleChange = function handleChange(event) {
     var _event$target = event.target,
       value = _event$target.value,
