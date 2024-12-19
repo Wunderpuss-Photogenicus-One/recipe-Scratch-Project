@@ -12,11 +12,6 @@ const App = () => {
     fetch('/api')
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
-        // const list = data.filter((element) => {
-        //   console.log(element.ingredient_name);
-        //   return element.ingredient_name;
-        // });
         setIngredientList(data);
       })
       .catch((err) => {
@@ -24,7 +19,6 @@ const App = () => {
       });
   }, []);
 
-  
   return (
     <div>
       <Hero />
