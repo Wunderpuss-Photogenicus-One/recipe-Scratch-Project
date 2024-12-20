@@ -64,40 +64,45 @@ const IngredientList = (props) => {
   }, [checked]);
 
   return (
-    <div>
-      <h3>Select from these ingredients:</h3>
-      <form method='POST' onSubmit={handleSubmit}>
-        <div>
-          {ingredientList.map((element) => {
-            return (
-              <label key={element.ingredient_id} htmlFor={element}>
-                {/* htmlFor is what we need in react to connect the label to the input */}
-                <input
-                  id={element.ingredient_id}
-                  name={element.ingredient_name}
-                  type='checkbox'
-                  checked={checked[element.ingredient_name] || false}
-                  onChange={handleChange}
-                  value={element.ingredient_name}
-                />
-                {element.ingredient_name}
-              </label>
-            );
-          })}
+    <div className="ingredient-container">
+      <div className="ingredient-form">
+        <h3>Select from these ingredients:</h3>
+        <form method="POST" onSubmit={handleSubmit}>
+          <div className="ingredient-list">
+            {ingredientList.map((element) => {
+              return (
+                <label key={element.ingredient_id} htmlFor={element.ingredient_id} className="ingredient-label">
+                  <input
+                    id={element.ingredient_id}
+                    name={element.ingredient_name}
+                    type="checkbox"
+                    checked={checked[element.ingredient_name] || false}
+                    onChange={handleChange}
+                    value={element.ingredient_name}
+                    className="ingredient-checkbox"
+                  />
+                  {element.ingredient_name}
+                </label>
+              );
+            })}
+          </div>
+          <div className="form-actions">
+            <button type="submit" className="find-recipe-btn">Find Recipe</button>
+          </div>
+        </form>
+      </div>
+      <div className="ingredient-summary">
+        <h5>Selected Ingredients:</h5>
+        <ul>
+          {listOfIngredientsChosen.length > 0 &&
+            listOfIngredientsChosen.map((element) => {
+              return <li key={element}>{element}</li>;
+            })}
+        </ul>
+        <div className="recipe-list">
+          <Recipes recipeList={recipeList} />
         </div>
-        <button type='submit'>Submit Ingredients and Find Recipe</button>
-        {/* maybe replace the above button with the button below? (tap to generate recipe) */}
-      </form>
-
-      <h5>
-        Selected ingredients:
-        {listOfIngredientsChosen.length > 0 &&
-          listOfIngredientsChosen.map((element) => {
-            return <li key={element}>{element}</li>;
-          })}
-      </h5>
-      {/* <button>Tap to generate recipe!</button> */}
-      <Recipes recipeList={recipeList} />
+      </div>
     </div>
   );
 };
