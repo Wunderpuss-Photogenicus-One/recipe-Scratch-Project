@@ -16,8 +16,8 @@ const Recipes = (props) => {
         </p>
       ) : (
         <ul>
-          {recipeList.map((recipe) => (
-            <div key={recipe.id}>
+          {recipeList.map((recipe, index) => (
+            <div key={index}>
               <p>
                 <b>Recipe Name:</b> {recipe.recipe_name}
               </p>

@@ -3,6 +3,8 @@ import React from 'react';
 const CreateRecipe = () => {
   const handleSubmission = (e) => {
     e.preventDefault();
+    
+
   };
 
   return (

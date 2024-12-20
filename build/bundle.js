@@ -33,6 +33,8 @@ var App = function App() {
     _useState2 = _slicedToArray(_useState, 2),
     ingredientList = _useState2[0],
     setIngredientList = _useState2[1];
+
+  //function which makes a fetch request from the beginning to grab all of the ingredients for user
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     fetch('/api').then(function (res) {
       return res.json();
@@ -209,31 +211,6 @@ var IngredientList = function IngredientList(props) {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IngredientList);
 
-//not needed anymore, for submit button, form has own submission event handler
-// const handleClick = () => {
-//   fetch('/api')
-//     .then((res) => res.json())
-//     .then((data) => console.log(data))
-//     .catch((err) => {
-//       console.log('check fetch request for Recipe');
-//     });
-// };
-
-//this form is to be used onhandlesubmit
-// const handleIngredientListClick = () => {
-//   fetch('/api/recipes', {
-//     method: 'POST',
-//     headers: {
-//       Accept: 'application/json',
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(fakeIngredients),
-//   }).catch(() => {
-//     (err) =>
-//       console.error('Frontend to backend communication breakdown:', err);
-//   });
-// };
-
 /***/ }),
 
 /***/ "./src/client/components/NavBar.jsx":
@@ -282,9 +259,9 @@ __webpack_require__.r(__webpack_exports__);
 var Recipes = function Recipes(props) {
   var recipeList = props.recipeList;
   console.log(recipeList);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Recipe List"), recipeList === null ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "If your ingredients match any recipes, they will show up here!") : recipeList.length === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Sorry, no recipes found with those ingredients. Maybe you can upload one?") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null, recipeList.map(function (recipe) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Recipe List"), recipeList === null ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "If your ingredients match any recipes, they will show up here!") : recipeList.length === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Sorry, no recipes found with those ingredients. Maybe you can upload one?") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null, recipeList.map(function (recipe, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-      key: recipe.id
+      key: index
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "Recipe Name:"), " ", recipe.recipe_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "Instructions:"), " ", recipe.instructions), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null));
   })));
 };
