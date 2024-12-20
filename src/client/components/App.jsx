@@ -1,9 +1,10 @@
 import React from 'react';
-import Hero from './Hero.tsx';
-import IngredientList from './Ingredients.jsx';
-import RecipeList from './RecipeList.jsx';
-import NavBar from './NavBar.jsx';
+import Hero from './Hero';
+import IngredientList from './Ingredients';
+import RecipeList from './RecipeList';
+import NavBar from './NavBars';
 import { useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   useEffect(() => {
