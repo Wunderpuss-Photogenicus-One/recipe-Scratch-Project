@@ -164,7 +164,7 @@ var IngredientList = function IngredientList(props) {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(_toConsumableArray(ingredientChosen))
+      body: JSON.stringify(_toConsumableArray(ingredientChosen)) //sending ingredients chosen to the backend
     }).then(function (response) {
       response.json();
     }).then(function (data) {
@@ -186,7 +186,7 @@ var IngredientList = function IngredientList(props) {
     console.log(ingredientSet);
     setIngredientChosen(ingredientSet);
   }, [checked]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Select from These Ingredients:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Select from these ingredients:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
     method: "POST",
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, ingredientList.map(function (element) {
@@ -285,7 +285,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var Recipes = function Recipes(props) {
   var recipeList = props.recipeList;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Recipe List"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "This will be the recipe list that will be generated")));
+  console.log(recipeList);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Recipe List"), recipeList === null ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "If your ingredients match any recipes, they will show up here!") : recipeList.length === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Sorry, no recipes found with those ingredients. Maybe you can upload one?") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null, recipeList.map(function (recipe) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      key: recipe.id
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "Recipe Name:"), " ", recipe.recipe_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "Instructions:"), " ", recipe.instructions), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null));
+  })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Recipes);
 
