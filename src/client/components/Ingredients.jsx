@@ -10,14 +10,11 @@ const IngredientList = (props) => {
   const [ingredientChosen, setIngredientChosen] = useState(new Set());
   const [recipeList, setRecipeList] = useState(null);
 
-  // console.log('ingredientList:', ingredientList); //just testing to see if ingredient list prints
   let listOfIngredientsChosen = [...ingredientChosen];
 
   //adds to the stateObject the ingredients that are checked off
   const handleChange = (event) => {
     const { name, checked } = event.target;
-    // console.log('name of item checked:', name);
-    // console.log(checked);
     setChecked((previous) => ({
       ...previous,
       [name]: checked,
