@@ -130,7 +130,7 @@ var IngredientList = function IngredientList(props) {
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(new Set()),
     _useState4 = _slicedToArray(_useState3, 2),
     ingredientChosen = _useState4[0],
-    setIngredientChosen = _useState4[1];
+    setIngredientChosen = _useState4[1]; //the set that will hold the ingredients that are selected
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState6 = _slicedToArray(_useState5, 2),
     recipeList = _useState6[0],
@@ -143,17 +143,12 @@ var IngredientList = function IngredientList(props) {
   var handleChange = function handleChange(event) {
     var _event$target = event.target,
       name = _event$target.name,
-      checked = _event$target.checked;
-    // console.log('name of item checked:', name);
-    // console.log(checked);
+      checked = _event$target.checked; //destructures the name and checked properties from element that was checked
     setChecked(function (previous) {
       return _objectSpread(_objectSpread({}, previous), {}, _defineProperty({}, name, checked));
     });
   };
-  var mockRecipeList = [{
-    recipe_name: 'Spaghetti Carbonara',
-    instructions: 'Cook pasta al dente, reserving water.\nCook guanciale (or substitute) until crispy.\nWhisk eggs, yolks, cheeses, and pepper.\nCombine pasta with guanciale fat.\nToss pasta with egg mixture, adding pasta water as needed.\nServe immediately with extra cheese.'
-  }];
+
   //this function is used for the form submission
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
@@ -166,7 +161,7 @@ var IngredientList = function IngredientList(props) {
       },
       body: JSON.stringify(_toConsumableArray(ingredientChosen)) //sending ingredients chosen to the backend
     }).then(function (res) {
-      res.json();
+      return res.json();
     }).then(function (data) {
       setRecipeList(data);
     })["catch"](function (err) {
@@ -174,18 +169,19 @@ var IngredientList = function IngredientList(props) {
     });
   };
 
-  // console.log(checked);
+  //adds ingredients to a set if true, otherwise takes them out
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var ingredientSet = new Set();
     for (var _i = 0, _Object$entries = Object.entries(checked); _i < _Object$entries.length; _i++) {
       var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
         key = _Object$entries$_i[0],
         value = _Object$entries$_i[1];
-      if (value) ingredientSet.add(key);else ingredientSet["delete"](key);
+      if (value) ingredientSet.add(key); //if value is true(checked off) then add
+      else ingredientSet["delete"](key); //otherwise delete ingredient from the set
     }
-    console.log(ingredientSet);
-    setIngredientChosen(ingredientSet);
-  }, [checked]);
+    setIngredientChosen(ingredientSet); //sets the ingredients chosen to the state
+  }, [checked]); //only updates when checked box is changed
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Select from these ingredients:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
     method: "POST",
     onSubmit: handleSubmit
@@ -315,7 +311,79 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ``, "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, `/* General styles 
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 5px;
+  background-color: #f8f9fa;
+}
+
+h1,
+h3,
+h4 {
+  color: #343a40;
+}
+
+form {
+  margin: 20px 0;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+input[type='text'],
+input[type='checkbox'] {
+  padding: 10px;
+  margin: 5px 0 15px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Container styles 
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* List styles 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  border-bottom: 1px solid #ced4da;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+*/
+`, "",{"version":3,"sources":["webpack://./src/client/index.css"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;CAuEC","sourcesContent":["/* General styles \nbody {\n  font-family: Arial, sans-serif;\n  margin: 0;\n  padding: 5px;\n  background-color: #f8f9fa;\n}\n\nh1,\nh3,\nh4 {\n  color: #343a40;\n}\n\nform {\n  margin: 20px 0;\n}\n\nlabel {\n  display: block;\n  margin: 10px 0 5px;\n  font-weight: bold;\n}\n\ninput[type='text'],\ninput[type='checkbox'] {\n  padding: 10px;\n  margin: 5px 0 15px;\n  border: 1px solid #ced4da;\n  border-radius: 4px;\n  width: 100%;\n  box-sizing: border-box;\n}\n\nbutton {\n  padding: 10px 20px;\n  background-color: #007bff;\n  color: white;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer;\n}\n\nbutton:hover {\n  background-color: #0056b3;\n}\n\n/* Container styles \n.container {\n  max-width: 800px;\n  margin: 0 auto;\n  padding: 20px;\n  background-color: white;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n\n/* List styles \nul {\n  list-style-type: none;\n  padding: 0;\n}\n\nli {\n  padding: 10px;\n  border-bottom: 1px solid #ced4da;\n}\n\nli:last-child {\n  border-bottom: none;\n}\n*/\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

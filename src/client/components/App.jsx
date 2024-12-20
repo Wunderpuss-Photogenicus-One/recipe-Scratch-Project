@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 const App = () => {
   const [ingredientList, setIngredientList] = useState([]);
 
+  //function which makes a fetch request from the beginning to grab all of the ingredients for user
   useEffect(() => {
     fetch('/api')
       .then((res) => res.json())

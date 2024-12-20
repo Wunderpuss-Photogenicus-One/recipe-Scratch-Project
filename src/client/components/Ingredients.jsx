@@ -94,28 +94,3 @@ const IngredientList = (props) => {
 };
 
 export default IngredientList;
-
-//not needed anymore, for submit button, form has own submission event handler
-// const handleClick = () => {
-//   fetch('/api')
-//     .then((res) => res.json())
-//     .then((data) => console.log(data))
-//     .catch((err) => {
-//       console.log('check fetch request for Recipe');
-//     });
-// };
-
-//this form is to be used onhandlesubmit
-// const handleIngredientListClick = () => {
-//   fetch('/api/recipes', {
-//     method: 'POST',
-//     headers: {
-//       Accept: 'application/json',
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(fakeIngredients),
-//   }).catch(() => {
-//     (err) =>
-//       console.error('Frontend to backend communication breakdown:', err);
-//   });
-// };
