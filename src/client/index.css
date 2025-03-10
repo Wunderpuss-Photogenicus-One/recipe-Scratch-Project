@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* hero.tsx */
+.hero-container {
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .overlay {
+    text-align: center;
+  }
+  
+  .hero-text {
+    color: white;
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .hero-subtext {
+    color: #f0f0f0;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .hero-button {
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .hero-button:hover {
+    background-color: #555;
+    color: #fff;
+  }
+
+  /* IngredientList */
+  .ingredient-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    height: 100vh;
+    box-sizing: border-box; /* Ensures padding is included in height calculations */
+  }
+  
+  .ingredient-form {
+    flex: 1;
+    max-width: 45%;
+  }
+  
+  .ingredient-form h3 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: white;
+  }
+  
+  .ingredient-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .ingredient-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .ingredient-checkbox {
+    width: 20px;
+    height: 20px;
+    accent-color: white;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+  }
+  
+  .find-recipe-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .find-recipe-btn:hover {
+    background-color: #ddd;
+    transform: scale(1.05);
+  }
+  
+  .ingredient-summary {
+    flex: 1;
+    max-width: 45%;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  .ingredient-summary h5 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: white;
+  }
+  
+  .recipe-list {
+    height: 400px;
+    overflow-y: auto;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+  }
+  
+  /* CreateRecipe.jsx */
+  .create-recipe-container {
+    background-color: black;
+    color: white;
+    height: 100vh;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+  }
+  
+  .create-recipe-container h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+  }
+  
+  .create-recipe-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .create-recipe-form label {
+    font-size: 1.2rem;
+    color: white;
+  }
+  
+  .create-recipe-form input,
+  .create-recipe-form textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+  }
+  
+  .create-recipe-form textarea {
+    resize: none;
+  }
+  
+  .create-recipe-form input:focus,
+  .create-recipe-form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px #007bff;
+  }
+  
+  .add-recipe-btn {
+    margin-top: 2rem;
+    padding: 0.8rem 1.5rem; /* Adjusted padding for smaller width */
+    font-size: 1.2rem;
+    color: white;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: block; /* Makes the button take up block space */
+    margin-left: auto; /* Center align */
+    margin-right: auto; /* Center align */
+  }
+  
+  .add-recipe-btn:hover {
+    background-color: #555;
+    color: #fff;
+  }
+  
+  
+  
+  
