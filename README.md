@@ -51,8 +51,8 @@ This application allows users to select ingredients from a predefined list, and 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/recipe-generator-app.git
-   cd recipe-generator-app/frontend
+   git clone https://github.com/your-username/recipe-Scratch-Project.git
+   cd recipe-Scratch-Project/frontend
    ```
 
 2. Install dependencies:
